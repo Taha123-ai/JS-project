@@ -1,0 +1,169 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(48, 221, 252); */
+/* }
+
+.mainbox {
+    border: 2px solid black;
+    width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    /* background-color: rgb(43, 42, 42); */
+/* } */
+/* 
+.btns {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 10px;
+    margin: 2px;
+    
+} */
+
+/* .allbtn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(44, 44, 44);
+    font-size: 22px;
+    font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.955);
+    cursor: pointer;
+
+}
+.allbtn:hover{
+    background-color: rgb(14, 14, 14);
+    box-shadow: inset 0px 0px 5px 2px     /* font-size: xx-large; */
+/* } */ 
+
+/* input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 110px;                  Increased height
+    color: #ffffff;                 Changed text color to white for contrast
+    background-color: #1a1a1a;      Deep dark background
+    text-align: right; 
+    outline: none; 
+    border: 2px solid #333;         Subtle sleek border
+    border-radius: 12px;            Smooth rounded corners
+    font-size: 42px;                Significantly bigger text
+    font-family: 'Courier New', Courier, monospace; Clean calculator font style
+    /* font-weight: bold;              Makes numbers pop */
+    /* padding: 0 25px;                Clean internal breathing space
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5); Modern inner display shadow
+    letter-spacing: 2px; 
+    
+}  */ 
+
+
+/* ai */
+/* Modern Reset & Base Setup */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+} 
+
+body { 
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    overflow: hidden;
+    position: relative;
+} 
+
+/* Ambient Background Glow Elements */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(80px);
+    opacity: 0.35;
+}
+body::before { background: #3b82f6; top: 15%; left: 20%; }
+body::after { background: #ec4899; bottom: 15%; right: 20%; }
+
+/* Glassmorphic Calculator Shell */
+.mainbox { 
+    position: relative;
+    z-index: 1;
+    width: 350px; 
+    box-sizing: border-box; 
+    padding: 20px; 
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+} 
+
+/* Modernized Typography Display Screen */
+input { 
+    width: 100%; 
+    box-sizing: border-box; 
+    height: 110px; 
+    color: #ffffff; 
+    background: rgba(15, 23, 42, 0.6); 
+    text-align: right; 
+    outline: none; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 16px; 
+    font-size: 42px; 
+    font-family: 'Segoe UI', system-ui, sans-serif; /* Clean modern text over Courier */
+    font-weight: 300; 
+    padding: 0 20px; 
+    box-shadow: inset 0px 4px 12px rgba(0, 0, 0, 0.4); 
+    letter-spacing: -0.5px;
+}
+
+/* Symmetric Layout Grid */
+.btns { 
+    display: grid; 
+    grid-template-rows: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 12px; 
+    margin: 20px 2px 2px 2px; 
+} 
+
+/* Sleek Button Styling */
+.allbtn { 
+    width: 70px; 
+    height: 70px; 
+    border-radius: 16px; /* Squircle design matches modern UI guidelines */
+    border: none; 
+    background-color: rgba(255, 255, 255, 0.07); 
+    font-size: 22px; 
+    font-weight: 500;
+    color: #f8fafc; 
+    cursor: pointer; 
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+} 
+
+/* Tactile Hover States & Internal Glow */
+.allbtn:hover { 
+    background-color: rgba(255, 255, 255, 0.14); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+} 
+
+/* Pressed Interaction State */
+.allbtn:active {
+    transform: translateY(1px);
+}
