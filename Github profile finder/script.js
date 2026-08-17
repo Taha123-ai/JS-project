@@ -8,34 +8,46 @@ let Name = document.querySelector(".name");
 let Email = document.querySelector(".email");
 let table = document.querySelector(".tablehaiye");
 let main = document.querySelector(".main");
-let BTNrepo = document.querySelector(".repobtn");
-let repo = [];
+let loc = document.querySelector(".loc");
+let companys = document.querySelector(".comp");
 async function profileinfo(username) {
     try {
+        
         const response = await fetch(API_URL + `${username}`)
-        // console.log(response.status);
+        console.log(response.status);
 
         if (!response.ok) {
             throw new Error(response.status)
         }
         const INFO = await response.json()
-        // console.log(INFO.status);
-        BTNrepo.style.display = "block"
+        console.log(INFO);
+        
         main.style.display = "block"
         Name.innerHTML = INFO.name || "Name-not-available";
-        Email.innerHTML = INFO.email || "Email-hidden";
+        Email.innerHTML = INFO.email?`<a href="mailto:${INFO.email}" target="_blank" class="linkemail">${INFO.email}</a>`: "Email-hidden";
+        loc.innerHTML = INFO.location||"Location";
+        companys.innerHTML = INFO.company||"company";
         Avatar.src = INFO.avatar_url;
         table.rows[0].cells[1].innerHTML = INFO.followers
         table.rows[1].cells[1].innerHTML = INFO.following
         table.rows[2].cells[1].innerHTML = INFO.login
         table.rows[4].cells[1].innerHTML = new Date(INFO.created_at).toLocaleDateString()
-        let response2 = await fetch(INFO.repos_url)
+        let response2 = await fetch(INFO.repos_url + "?per_page=100")
+        console.log(response2);
         if (!response2.ok) {
             throw new Error("ERROR_catch")
         }
-        repo = await response2.json() //can only be use inside async func
+        
+        let repo = await response2.json() //can only be use inside async func
+        console.log(repo);
+        let repository=""
+        repo.forEach(element => {
+            repository+=`<span>📁</span><a href="${element.html_url}" target="_blank" class="repo-link">${element.name}</a><br>`
+        });
+        table.rows[3].cells[1].innerHTML+=repository
         table.rows[5].cells[1].innerHTML = repo.length
 
+        
     }
     catch (err) {
         console.log(err);
@@ -55,9 +67,6 @@ async function profileinfo(username) {
         else if (err.message.includes("503")) {
             errorbox.innerHTML = "GitHub service temporarily unavailable";
         }
-        else if (err.message === "ERROR_catch") {
-            table.rows[3].cells[1].innerHTML = "Repo can't Access!"
-        }
         else {
             errorbox.innerHTML = "Network error!"
         }
@@ -65,23 +74,13 @@ async function profileinfo(username) {
     finally {
         INPUT1.blur();
         loading.style.display = "none";
+        
     }
 
 
 }
-
-BTNrepo.addEventListener("click", () => {
-    BTNrepo.style.display = "none";
-    table.rows[3].cells[1].innerHTML = "";
-    repo.forEach((element, index) => {
-        table.rows[3].cells[1].innerHTML += `${(index + 1)}: ${element.name}<br>`
-        console.log(element)
-    })
-});
 INPUT1.addEventListener("keydown", (e) => {
-
     if (e.key === "Enter") {
-
         INPUT1sidebtn.click();
     }
 })
@@ -96,12 +95,10 @@ function cleardetails() {
     INPUT1.value = ""
     errorbox.innerHTML = ""
     main.style.display = "none"
-    BTNrepo.style.display = "none"
     Name.innerHTML = ""
     Avatar.src = ""
     Email.innerHTML = ""
-    repo = []
     for (let i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[1].innerHTML = ""
+            table.rows[i].cells[1].innerHTML = "";
     }
 }

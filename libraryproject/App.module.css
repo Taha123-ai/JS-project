@@ -1,0 +1,33 @@
+import styles from "./OccupancyBar.module.css";
+
+export default function OccupancyBar({ available, oneShift, fullDay }) {
+  const total = available + oneShift + fullDay;
+  const pct = (n) => (total ? (n / total) * 100 : 0);
+
+  return (
+    <div className={styles.wrap}>
+      <div className={styles.track}>
+        <div
+          className={styles.segment}
+          style={{ width: `${pct(fullDay)}%`, background: "var(--full-day)" }}
+          title={`Full Day: ${fullDay}`}
+        />
+        <div
+          className={styles.segment}
+          style={{ width: `${pct(oneShift)}%`, background: "var(--one-shift)" }}
+          title={`One Shift: ${oneShift}`}
+        />
+        <div
+          className={styles.segment}
+          style={{ width: `${pct(available)}%`, background: "var(--available)" }}
+          title={`Available: ${available}`}
+        />
+      </div>
+      <div className={styles.legendRow}>
+        <span><i style={{ background: "var(--full-day)" }} />Full Day {fullDay}</span>
+        <span><i style={{ background: "var(--one-shift)" }} />One Shift {oneShift}</span>
+        <span><i style={{ background: "var(--available)" }} />Available {available}</span>
+      </div>
+    </div>
+  );
+}

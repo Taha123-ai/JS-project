@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',"sans-serif";
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,#153677,#4e085f);
+    position: relative;
+}
+.heading{
+    margin-top :10px;
+    /* align-items:center ; */
+    display: flex;
+    justify-content: center;
+}
+.mainbox{
+    border: 2px solid ;
+    position: absolute;
+    top: 50px;
+    width: 800px;
+    /* max-width: 500px; */
+    background: #fff;
+
+}
+.searchbox{
+        display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    background: #cdcdce;
+    margin: 15px 66px;
+    border-radius: 20px;
+    
+}
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 10px ;
+    padding-right: 5px;
+    font-size: 24px;
+    margin: 2px 6px;
+}
+.searchbtn{
+    font-size: 16px;
+        background-color: #ff5945;
+    padding: 14px 33px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+.searchbtn:hover{
+    background-color: #fc6453;
+}
+.taskbox{
+    
+    /* border: 2px solid; */
+    margin: 5px 15px ;
+
+}
+ul{
+    list-style: inside;
+    margin-top: 15px;
+    cursor: pointer;
+    
+}
+ul li{
+    padding: 10px;
+    font-size: 30px;
+    position: relative;
+    color: red;
+    /* margin: 5px;  */
+}
+ul li:hover{
+    color: rgb(1, 72, 1);
+}
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+
+}
+ul li span{
+    top: 10px;
+    padding: 7px;
+    position: absolute;
+    right: 30px;
+    border-radius: 10%;
+    width: 77px;
+    height: 28px;
+    font-size: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fe3822;
+    color: white;
+    /* margin-bottom: 5px; */
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+}
+ul li span:hover{
+    background-color: #fa4430;
+}
+
+
+

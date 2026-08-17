@@ -1,0 +1,21 @@
+import styles from "./Legend.module.css";
+
+const ITEMS = [
+  { emoji: "🟢", label: "Available", swatch: "var(--available)" },
+  { emoji: "🟠", label: "One Shift Occupied", swatch: "var(--one-shift)" },
+  { emoji: "🔴", label: "Full Day Occupied", swatch: "var(--full-day)" },
+];
+
+export default function Legend() {
+  return (
+    <div className={styles.legend}>
+      {ITEMS.map((item) => (
+        <div className={styles.item} key={item.label}>
+          <span className={styles.dot} style={{ background: item.swatch }} />
+          <span className={styles.emoji}>{item.emoji}</span>
+          <span>{item.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}

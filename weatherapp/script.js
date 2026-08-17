@@ -59,6 +59,8 @@ async function checkweather(cityname) {
 }
 
 search.addEventListener("click", (e) => {
+    console.log("clicked");
+    
     let cityname = input.value
     spinner.style.display="block"
     checkweather(cityname)

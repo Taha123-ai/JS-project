@@ -86,9 +86,9 @@ function startgame() {
         array = [];
         attemptreamining = 10;
 
-        previousguess.innerHTML=`${array}`
-        guesscount.innerHTML=`${attemptreamining}`
-        resultshow.innerHTML=`${''}`
+        previousguess.innerHTML = `${array}`
+        guesscount.innerHTML = `${attemptreamining}`
+        resultshow.innerHTML = `${''}`
         input.value = ''
         // resultshow.removeChild(p)
         input.removeAttribute("disabled")

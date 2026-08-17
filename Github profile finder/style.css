@@ -121,11 +121,28 @@ body {
     background: #24292e;
     color: white;
 }
+.repo-link {
+    color: rgb(15, 15, 16);
+    text-decoration: none;
+}
 
+.repo-link:hover {
+    color: blue;
+    text-decoration: underline;
+}
+.repo-link:visited{
+    color:purple;
+}
 .tablehaiye tr:nth-child(even) {
     background: #f8f8f8;
 }
-
+.linkemail{
+    color: black;
+    text-decoration: none;
+}
+.linkemail:hover{
+    color: #2da44e;
+}
 .repobtn {
     padding: 8px 14px;
     border: none;

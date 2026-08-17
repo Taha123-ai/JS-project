@@ -1,0 +1,49 @@
+.wrap {
+  position: relative;
+  max-width: 380px;
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  color: #a8b0c4;
+}
+
+.wrap svg:first-child {
+  position: absolute;
+  left: 14px;
+}
+
+.input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 10.5px 14px 10.5px 37px;
+  font-size: 13.6px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(227, 160, 8, 0.15);
+}
+
+.clear {
+  position: absolute;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #eef0f6;
+  color: #8a93ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.clear:hover {
+  background: var(--full-day-soft);
+  color: var(--full-day);
+}

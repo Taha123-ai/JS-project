@@ -1,0 +1,30 @@
+import styles from "./Topbar.module.css";
+import { TODAY, formatDate } from "../../data/mockData";
+
+export default function Topbar({ title, subtitle }) {
+  return (
+    <header className={styles.topbar}>
+      <div>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.subtitle}>
+          {subtitle} · {formatDate(TODAY)}
+        </div>
+      </div>
+      <div className={styles.right}>
+        <button className={styles.iconBtn} aria-label="Notifications">
+          <BellIcon />
+        </button>
+        <div className={styles.avatar}>RM</div>
+      </div>
+    </header>
+  );
+}
+
+function BellIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 8.5a6 6 0 1 1 12 0c0 4.2 1.2 5.6 1.9 6.5H4.1c.7-.9 1.9-2.3 1.9-6.5Z" />
+      <path d="M10 19a2 2 0 0 0 4 0" />
+    </svg>
+  );
+}
